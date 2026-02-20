@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Smart Event Dashboard</title>
+    <link rel="stylesheet" href="eventdashboard.css">
+</head>
+
+<body>
+
+    <h1>Smart Event Dashboard</h1>
+
+    <div class="form-container">
+        <input type="text" id="eventTitle" placeholder="Enter Event Title">
+        <input type="date" id="eventDate">
+        <select id="eventCategory">
+            <option>Conference</option>
+            <option>Workshop</option>
+            <option>Meetup</option>
+        </select>
+        <textarea id="eventDesc" placeholder="Enter Description"></textarea>
+        <button id="addBtn">Add Event</button>
+    </div>
+
+    <hr>
+
+    <div id="eventContainer"></div>
+
+</body>
+
+</html>
+<script>
+    const titleInput = document.getElementById("eventTitle");
+    const dateInput = document.getElementById("eventDate");
+    const catInput = document.getElementById("eventCategory");
+    const descInput = document.getElementById("eventDesc");
+    const addBtn = document.getElementById("addBtn");
+    const container = document.getElementById("eventContainer");
+
+    addBtn.addEventListener("click", function () {
+        const title = titleInput.value;
+        const date = dateInput.value;
+        const desc = descInput.value;
+        const cat = catInput.value;
+
+        if (title === "" || date === "" || desc === "") {
+            alert("Please fill all fields");
+            return;
+        }
+
+        const card = document.createElement("div");
+        card.className = "event-card";
+        card.innerHTML = `
+            <h3>${title}</h3>
+            <p><strong>Date:</strong> ${date}</p>
+            <p>${desc}</p>
+            <span class="badge">${cat}</span>
+            <button class="delete-btn">Delete</button>
+        `;
+
+        const delBtn = card.querySelector(".delete-btn");
+        delBtn.addEventListener("click", function () {
+            container.removeChild(card);
+        });
+
+        container.appendChild(card);
+
+        titleInput.value = "";
+        dateInput.value = "";
+        descInput.value = "";
+    });
+</script>
