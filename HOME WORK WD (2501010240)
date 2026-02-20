@@ -24,7 +24,7 @@
 
     <hr>
 
-    <div id="eventContainer"></div>
+    <div id="eventContaine"></div>
 
 </body>
 
@@ -44,7 +44,7 @@
         const cat = catInput.value;
 
         if (title === "" || date === "" || desc === "") {
-            alert("Please fill all fields");
+            alert("Please fill all the fields");
             return;
         }
 
@@ -60,7 +60,7 @@
 
         const delBtn = card.querySelector(".delete-btn");
         delBtn.addEventListener("click", function () {
-            container.removeChild(card);
+            container.removeChild(cards);
         });
 
         container.appendChild(card);
