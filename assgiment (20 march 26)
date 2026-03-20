@@ -16,7 +16,7 @@ body {
 .container {
   max-width: 900px;
   margin: auto;
-  padding: 20px;
+  padding: 40px;
 }
 
 h1 {
@@ -28,7 +28,7 @@ h1 {
   background: #f5f5f5;
   border-radius: 8px;
   padding: 15px;
-  margin: 10px 0;
+  margin: 20px 0;
 }
 
 .row {
@@ -74,7 +74,7 @@ button:hover {
 
 <body>
 <div class="container">
-  <h1>🌤️ Async Weather Tracker</h1>
+  <h1>Async Weather Tracker</h1>
 
   <div class="row">
     <div class="card" style="flex:1">
@@ -139,7 +139,7 @@ function loadHistory(){
 function handleSearch(){
   const city = document.getElementById("cityInput").value.trim();
   if(!city){
-    weatherBox.innerHTML = "⚠️ Enter city";
+    weatherBox.innerHTML = "Enter city";
     return;
   }
   fetchWeather(city);
@@ -168,7 +168,7 @@ async function fetchWeather(city){
     saveCity(city);
 
   }catch(err){
-    weatherBox.innerHTML = "❌ " + err.message;
+    weatherBox.innerHTML = + err.message;
     log("[ERROR] "+err.message);
   }
 
